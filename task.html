@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&amp;display=swap"
+      rel="stylesheet"
+    />
+
+        <!-- boxicon -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    
+    <link rel="stylesheet" href="./task.css">
+    <link rel="stylesheet" href="./nav.css">
+    <title>Task</title>
+  </head>
+  <body>
+   <!-- nav -->
+   <nav>
+    <div class="navbar">
+      <ul class="navbar-ul1">
+        <li>
+          <a href="/"
+            ><img src="./assets/logo.png" alt="logo" class="logo"
+          /></a>
+        </li>
+      </ul>
+      <ul class="navbar-ul2">
+        <li>
+          <a href="./index.html"> <h1>Home</h1></a>
+        </li>
+        <li>
+          <a href="./index.html#about"> <h1>About</h1></a>
+        </li>
+        <li>
+          <a href="./task.html" target="_blank"> <h1>Task</h1></a>
+        </li>
+        <li>
+          <a href="./flashCard.html" target="_blank"> <h1>Flash Card</h1></a>
+        </li>
+        <li>
+          <a href="./focus.html" target="_blank"> <h1>Focus</h1></a>
+        </li>
+        <li>
+          <a href="./index.html#contact"> <h1>Contact Us</h1></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="containerr mt-5">
+   
+   <div class="upper d-flex w-100 flex-column justify-content-between">
+    <div class="upper-1 d-flex align-items-center justify-content-between px-5">
+      <h1 class="containerr-h1">Tasks</h1>
+      
+      <div class="timerDiv d-flex align-item-center justify-content-end flex-wrap w-100" style="align-items: center;">
+        <h1 id="timer" class="mx-5">00:00:00 PM</h1>
+        <button class=" task-alerm mx-2 btn btn-primary m-5"  id="startAlarmBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" >Start Task</button>
+        <button type="button" id="clearAlarmBtn" class="btn btn-primary m-5" >
+         Stop Alarm
+        </button>
+       </div>
+    </div>
+    <hr class="style1">
+    <div class="right d-flex justify-content-center align-items-center m-2 w-100 flex-column" >
+  
+       <div class="addTask d-flex flex-column align-items-center">
+        <input oninput="inputElt()" class="form-control form-control-lg " id="task-title"
+         style="width: 50rem;"
+         type="text" placeholder="Task" aria-label=".form-control-lg example">
+        <button type="button" class="btn btn-primary m-5" id="AddBtn" >
+          + Add Task
+        </button>
+       </div>
+    </div>
+   </div>
+    <hr class="style1">
+    <div class="task-list" id="task-list">
+    </div>
+ 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="staticBackdropLabel">Set the timer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-x bx-tada' style='color:#ffffff'  ></i></button>
+      </div>
+      <div class="modal-body">
+        <!-- <input oninput="SetValidation()" class="form-control form-control-lg bg-dark text-white " id="alermValue" type="text" placeholder="hh:mm:ss" aria-label=".form-control-lg example"> -->
+        
+        <div class="wrapper d-flex justify-content-center align-items-center w-100 h-100">
+          <div class="column wrapper-column ">
+            <select name="" id="" >
+              <option value="Hours">Hours</option>
+             
+            </select>
+          </div>
+          <div class="column wrapper-column ">
+            <select name="" id="" >
+              <option value="Minute">Minute</option>
+            </select>
+          </div>
+
+          <div class="wrapper-column column">
+            <select name="" id="" >
+              <option value="Seconds">Seconds</option>
+            </select>
+          </div>
+          
+          <div class="column wrapper-column ">
+            <select name="" id="" >
+              <option value="AM/PM">AM/PM</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button"  id="alarmBtn" class="btn btn-primary" data-bs-dismiss="modal">Set</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="./task.js"></script>
+  </body>
+</html>
+
